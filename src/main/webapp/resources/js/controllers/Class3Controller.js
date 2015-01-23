@@ -45,3 +45,25 @@ var Class3Controller = function($scope, $http) {
 		$scope.tab = setTab;
 	}
 };
+
+App.controller("PanelController", function() {
+	
+	this.tab = 4;
+	this.selectTab = function(setTab) {
+		this.tab = setTab;
+	}
+	this.isSelected = function(checkTab) {
+		return checkTab === this.tab;
+	}
+});
+
+App.controller("ReviewController", function($scope) {
+	
+	this.review = {};
+	
+	this.addReview = function(product) {
+		this.review.createdOn = Date.now();
+		product.reviews.push(this.review);
+		this.review = {};
+	}
+})
